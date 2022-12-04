@@ -4,8 +4,8 @@ use std::{fs, collections::HashSet};
 fn main() {
     let lines = get_lines_from_file();
 
-    let answer1 = solution1(lines.clone());
-    let answer2 = solution2(lines);
+    let answer1 = solution1(&lines);
+    let answer2 = solution2(&lines);
 
     println!("The answer to question 1 is {}", answer1);
     println!("The anwer to question 2 is {}", answer2);
@@ -19,7 +19,7 @@ fn get_lines_from_file() -> Vec<String> {
     lines
 }
 
-fn solution1(lines: Vec<String>) -> i32 {
+fn solution1(lines: &Vec<String>) -> i32 {
     let mut total_common_priority = 0;
     for line in lines {
         let length = line.chars().count();
@@ -38,7 +38,7 @@ fn solution1(lines: Vec<String>) -> i32 {
     total_common_priority
 }
 
-fn solution2(lines: Vec<String>) -> i32 {
+fn solution2(lines: &Vec<String>) -> i32 {
     const LINES_PER_SET: usize = 3;
     let mut line_count:usize = 0;
     let mut total_badge_priority: i32 = 0;
